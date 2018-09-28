@@ -1,0 +1,36 @@
+[
+    {
+        "id": "AI202",
+        "source": "PNQ",
+        "destination": "DEL",
+        "days": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": "4500",
+        "depart": "400",
+        "arrive": "5400"
+    },
+    {
+        "id": "AI202",
+        "source": "PNQ",
+        "destination": "DEL",
+        "days": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": "4500",
+        "depart": "400",
+        "arrive": "5400"
+    }
+]

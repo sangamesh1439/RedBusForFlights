@@ -1,0 +1,31 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 15px;
+}
+
+.price-tag{
+    font-size: 150%;
+}
+
+.flight-id{
+    font-size: 80%;
+}
+
+.booking-img{
+    max-width: 150;
+    max-height: 150px;
+    align-self: center
+
+}
+
+.details {
+    flex: 30%;
+}
+
+.booking {
+    flex: 30%;
+width: 50%;}
+.book-button{
+width: 100%;
+}

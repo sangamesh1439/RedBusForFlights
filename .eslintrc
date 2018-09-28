@@ -1,0 +1,48 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "header"
+    ],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "global-require": "off",
+        "header/header": [
+            2,
+            "block",
+            [
+                "************************************************",
+                " * Code Challange",
+                " ************************************************"
+            ]
+        ],
+        "strict": 0,
+        "react/prop-types": [
+            "disable"
+        ],
+        "no-console": 2,
+        "no-extra-semi": 2,
+        "no-unreachable": 2,
+        "no-multi-spaces": 2,
+        "no-undef": 2,
+        "no-unused-vars": 2,
+        "camelcase": 2,
+        "no-trailing-spaces": 2,
+        "no-var": 2,
+        "prefer-const": 2,
+        "no-multiple-empty-lines": [
+            2,
+            {
+                "max": 1,
+                "maxEOF": 0
+            }
+        ]
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ]
+}
