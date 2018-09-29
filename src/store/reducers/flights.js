@@ -36,10 +36,13 @@ const oneWaySearch = (searchParams) => {
         }
         if (!(flight.source === source)) { return false };
         if (!(flight.destination === destination)) { return false };
-        if (!(price <= parseInt(flight.price, 10))) { return false };
+        if (searchParams.way === 1) {
+            console.log("way is 1");
+            if (!(price <= parseInt(flight.price, 10))) { return false };
+        }
         return true;
     });
-    console.log('filteredFilghts: ', filteredFilghts);
+    console.log('filteredFilghts: 1 way', filteredFilghts);
     return filteredFilghts;
 }
 
@@ -61,7 +64,7 @@ const twoWaySearch = (searchParams) => {
                 allPossibleRoutes.push([flightA, flightB])
 
             }
-            else if (roundTripPrice < searchParams.price) {
+            else if (roundTripPrice <= searchParams.price) {
                 allPossibleRoutes.push([flightA, flightB])
             }
             return true

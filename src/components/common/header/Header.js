@@ -8,8 +8,9 @@ class Header extends Component {
       <div className="header">
         <img className="logo" alt="flightIcon" src={logo} />
         <h1>Redbus for Flights</h1>
-        <p>By <b>Sangamesh Somawar</b> </p>
+        <p>By <b>Sangamesh Somawar </b> 
         <a href="https://www.linkedin.com/in/sangamesh-somawar-39973a86"> LinkedIn</a>
+        </p>
       </div>
     );
   }

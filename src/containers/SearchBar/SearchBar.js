@@ -141,10 +141,12 @@ class SearchBar extends Component {
 
           <label className='label-title' htmlFor='price'>Price: {this.state.price}</label>
           <input type="range" min="0" max="50000" step="1000" value={this.state.price} className="slider" name="price" onChange={(e) => {
-            this.setState({ 'price': parseInt(e.target.value,10) });
-            if (this.validate()) {
-              this.props.dispatch(actions.search(this.state));
-            }
+            this.setState({ 'price': parseInt(e.target.value, 10) }, () => {
+
+              if (this.validate()) {
+                this.props.dispatch(actions.search(this.state));
+              }
+            });
           }} />
 
           <div className="way-buttons">
