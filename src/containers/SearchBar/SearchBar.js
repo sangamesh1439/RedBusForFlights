@@ -2,18 +2,35 @@ import React, { Component } from 'react';
 import './SearchBar.css';
 import DataList from '../../components/DataList/DataList'
 import { getTodaysDate } from '../../services/time'
+import { connect } from 'react-redux'
+import actions from './actions';
+
+const toTitleCase = (phrase) => {
+  return phrase
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      way: 1
+    this.initialState = {
+      way: 1,
+      source: '',
+      destination: '',
+      departureDate: '',
+      returnDate: '',
+      passengers: ''
     }
+
+    this.state = this.initialState;
   }
 
 
   render() {
-
-    let data = ["one", "two", "three"];
+    const { sourceList, destinationList } = this.props;
     return (
       <div>
 
@@ -23,11 +40,11 @@ class SearchBar extends Component {
         </div>
 
         <form>
-          <DataList name={"source"} placeholder={"Enter Original City"} data={data} selected={(source) => {
+          <DataList name={"source"} placeholder={"Enter Original City"} data={sourceList} selected={(source) => {
             this.setState({ source: source })
           }} />
 
-          <DataList name={"destination"} placeholder={"Enter Destination City"} data={data} selected={(destination) => {
+          <DataList name={"destination"} placeholder={"Enter Destination City"} data={destinationList} selected={(destination) => {
             this.setState({ destination: destination })
           }} />
           <label className='label-title' htmlFor='departureDate'>Select Departure Date :</label>
@@ -36,17 +53,10 @@ class SearchBar extends Component {
           }} /> <br />
 
           {/* Show Return Date only if Two Way Trip Selected */}
-          {
-            this.state.way === 1 ?
-              null
-              :
-              <React.Fragment>
-                <label className='label-title' htmlFor='departureDate'>Select Return Date :</label>
-                <input type="date" className="date" name="returnDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
-                  this.setState({ returnDate: e.target.value })
-                }} /> <br />
-              </React.Fragment>
-          }
+          <label className='label-title' htmlFor='departureDate'>Select Return Date :</label>
+          <input disabled={!(this.state.way === 2)} type="date" className="date" name="returnDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
+            this.setState({ returnDate: e.target.value })
+          }} /> <br />
 
           <select required className="passengers" onChange={(e) => {
             this.setState({ passengers: e.target.value });
@@ -61,15 +71,31 @@ class SearchBar extends Component {
 
           <div className="way-buttons">
             <button type="submit" onClick={(e) => {
+              console.log(actions.search(this.state));
+              this.props.dispatch(actions.search(this.state));
               console.log("State : ", JSON.stringify(this.state));
               e.preventDefault();
             }}> Search</button>
+            <button type="button" onClick={(e) => {
+              this.setState(...this.initialState);
+              this.props.dispatch(actions.clear());
+              e.preventDefault();
+            }}> Clear</button>
           </div>
-
         </form>
       </div >
     );
   }
 }
 
-export default SearchBar;
+function mapStateToProps(state) {
+  return {
+    sourceList: state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.source) }),
+    destinationList: state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.destination) })
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { dispatch: dispatch }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

@@ -1,4 +1,4 @@
-export const convertMS = (milliseconds) => {
+export const convertTime = (milliseconds) => {
     var day, hour, minute, seconds;
     seconds = Math.floor(milliseconds / 1000);
     minute = Math.floor(seconds / 60);

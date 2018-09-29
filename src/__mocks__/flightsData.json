@@ -5,7 +5,7 @@
         "destination": "delhi",
         "sourceId": "PNQ",
         "destinationId": "DEL",
-        "days": [
+        "worksOnThesedays": [
             true,
             true,
             true,
@@ -15,16 +15,16 @@
             true
         ],
         "price": "4500",
-        "depart": "400",
-        "arrive": "5400"
+        "depart": "4068765750",
+        "arrive": "67000000"
     },
     {
-        "id": "AI202",
-        "source": "pune",
-        "destination": "delhi",
-        "sourceId": "PNQ",
-        "destinationId": "DEL",
-        "days": [
+        "id": "AI204",
+        "source": "delhi",
+        "destination": "pune",
+        "sourceId": "DEL",
+        "destinationId": "PNQ",
+        "worksOnThesedays": [
             true,
             true,
             true,
@@ -34,7 +34,7 @@
             true
         ],
         "price": "4500",
-        "depart": "400",
-        "arrive": "5400"
+        "depart": "6400",
+        "arrive": "8900"
     }
 ]
