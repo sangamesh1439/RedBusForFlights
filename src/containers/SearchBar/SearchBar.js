@@ -19,6 +19,7 @@ class SearchBar extends Component {
     this.initialState = {
       way: 1,
       source: '',
+      price: 0,
       destination: '',
       departureDate: '',
       returnDate: '',
@@ -104,15 +105,24 @@ class SearchBar extends Component {
             this.setState({ departureDate: e.target.value })
           }} /> <br />
 
-          {/* Show Return Date only if Two Way Trip Selected */}
-          <label className='label-title' htmlFor='departureDate'>Select Return Date :</label>
           {
-            this.state.errors.returnDate ?
-              <span className='errors'>{this.state.errors.returnDate}</span> : null
+            this.state.way === 2 ?
+
+              <React.Fragment>
+                {/* Show Return Date only if Two Way Trip Selected */}
+                <label className='label-title' htmlFor='departureDate'>Select Return Date :</label>
+                {
+                  this.state.errors.returnDate ?
+                    <span className='errors'>{this.state.errors.returnDate}</span> : null
+                }
+                <input disabled={!(this.state.way === 2)} value={this.state.returnDate} type="date" className="date" name="returnDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
+                  this.setState({ returnDate: e.target.value })
+                }} /> <br />
+              </React.Fragment>
+
+              : null
+
           }
-          <input disabled={!(this.state.way === 2)} value={this.state.returnDate} type="date" className="date" name="returnDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
-            this.setState({ returnDate: e.target.value })
-          }} /> <br />
 
           {
             this.state.errors.passengers ?
@@ -128,6 +138,14 @@ class SearchBar extends Component {
               })
             }
           </select>
+
+          <label className='label-title' htmlFor='price'>Price: {this.state.price}</label>
+          <input type="range" min="0" max="50000" step="1000" value={this.state.price} className="slider" name="price" onChange={(e) => {
+            this.setState({ 'price': parseInt(e.target.value,10) });
+            if (this.validate()) {
+              this.props.dispatch(actions.search(this.state));
+            }
+          }} />
 
           <div className="way-buttons">
             <button type="submit" onClick={(e) => {

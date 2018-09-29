@@ -14,7 +14,7 @@
             true,
             true
         ],
-        "price": "4500",
+        "price": 4500,
         "depart": "4068765750",
         "arrive": "67000000"
     },
@@ -33,7 +33,7 @@
             true,
             true
         ],
-        "price": "4500",
+        "price": 4500,
         "depart": "6400",
         "arrive": "8900"
     }

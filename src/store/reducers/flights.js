@@ -3,7 +3,7 @@ import flightsData from '../../__mocks__/flightsData';
 let initState = {
     flights: flightsData,
     filteredFilghts: flightsData,
-    searchParams:{}
+    searchParams: {}
 }
 
 const flightsReducer = (state = initState, action) => {
@@ -28,6 +28,7 @@ const flightsReducer = (state = initState, action) => {
 const oneWaySearch = (searchParams) => {
     const source = searchParams.source.toLowerCase();
     const destination = searchParams.destination.toLowerCase();
+    const price = parseInt(searchParams.price, 10);
     const departureDay = new Date(searchParams.departureDate).getDay();
     const filteredFilghts = flightsData.filter((flight) => {
         if (!flight.worksOnThesedays[departureDay]) {
@@ -35,6 +36,7 @@ const oneWaySearch = (searchParams) => {
         }
         if (!(flight.source === source)) { return false };
         if (!(flight.destination === destination)) { return false };
+        if (!(price <= parseInt(flight.price, 10))) { return false };
         return true;
     });
     console.log('filteredFilghts: ', filteredFilghts);
@@ -52,7 +54,17 @@ const twoWaySearch = (searchParams) => {
     const allPossibleRoutes = [];
     oneWay.map((flightA) => {
         return twoWay.map((flightB) => {
-            return allPossibleRoutes.push([flightA, flightB]);
+            const roundTripPrice = flightA.price + flightB.price;
+            console.log('roundTripPrice', roundTripPrice);
+            console.log('searchParams price', searchParams.price);
+            if (searchParams.price === 0) {
+                allPossibleRoutes.push([flightA, flightB])
+
+            }
+            else if (roundTripPrice < searchParams.price) {
+                allPossibleRoutes.push([flightA, flightB])
+            }
+            return true
         })
     })
     console.log('allPossibleRoutes: ', allPossibleRoutes);
