@@ -1,5 +1,6 @@
-Node Version: v8.12.0
-NPM Version: 6.4.1
+## Versions
+1. Node Version: v8.12.0
+2. NPM Version: 6.4.1
 
 ## Steps to execute 
 1. npm install 
