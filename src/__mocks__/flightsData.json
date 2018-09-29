@@ -1,9 +1,11 @@
 [
     {
         "id": "AI202",
-        "source": "PNQ",
-        "destination": "DEL",
-        "days": [
+        "source": "pune",
+        "destination": "delhi",
+        "sourceId": "PNQ",
+        "destinationId": "DEL",
+        "worksOnThesedays": [
             true,
             true,
             true,
@@ -12,15 +14,17 @@
             true,
             true
         ],
-        "price": "4500",
-        "depart": "400",
-        "arrive": "5400"
+        "price": 4500,
+        "depart": "4068765750",
+        "arrive": "67000000"
     },
     {
-        "id": "AI202",
-        "source": "PNQ",
-        "destination": "DEL",
-        "days": [
+        "id": "AI204",
+        "source": "delhi",
+        "destination": "pune",
+        "sourceId": "DEL",
+        "destinationId": "PNQ",
+        "worksOnThesedays": [
             true,
             true,
             true,
@@ -29,8 +33,84 @@
             true,
             true
         ],
-        "price": "4500",
-        "depart": "400",
-        "arrive": "5400"
+        "price": 5000,
+        "depart": "4068765750",
+        "arrive": "4067560000"
+    },
+    {
+        "id": "PN202",
+        "source": "pune",
+        "destination": "delhi",
+        "sourceId": "PNQ",
+        "destinationId": "DEL",
+        "worksOnThesedays": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": 7700,
+        "depart": "868765750",
+        "arrive": "68000000"
+    },
+    {
+        "id": "DE204",
+        "source": "delhi",
+        "destination": "pune",
+        "sourceId": "DEL",
+        "destinationId": "PNQ",
+        "worksOnThesedays": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": 8500,
+        "depart": "3068765750",
+        "arrive": "2067560000"
+    },
+    {
+        "id": "LL202",
+        "source": "pune",
+        "destination": "delhi",
+        "sourceId": "PNQ",
+        "destinationId": "DEL",
+        "worksOnThesedays": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": 1500,
+        "depart": "2268765750",
+        "arrive": "11000000"
+    },
+    {
+        "id": "HG804",
+        "source": "delhi",
+        "destination": "pune",
+        "sourceId": "DEL",
+        "destinationId": "PNQ",
+        "worksOnThesedays": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "price": 4530,
+        "depart": "4068765750",
+        "arrive": "4067560000"
     }
 ]
