@@ -1,6 +1,9 @@
 
-let SEARCH = 'SEARCH';
-let CLEAR = 'CLEAR';
+/*************************************************
+ * Code Challange
+ *************************************************/
+const SEARCH = 'SEARCH';
+const CLEAR = 'CLEAR';
 
 const search = (searchParams) => {
   return {

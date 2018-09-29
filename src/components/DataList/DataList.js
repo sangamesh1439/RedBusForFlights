@@ -1,8 +1,11 @@
+/*************************************************
+ * Code Challange
+ *************************************************/
 import React, { Component } from 'react';
 import './DataList.css';
 class DataList extends Component {
   render() {
-    let { name, placeholder, label, data, value, selected } = this.props;
+    const { name, placeholder, label, data, value, selected } = this.props;
     return (
       <div className="">
         {label ?

@@ -1,3 +1,6 @@
+/*************************************************
+ * Code Challange
+ *************************************************/
 import React, { Component } from 'react';
 import './SearchBar.css';
 import DataList from '../../components/DataList/DataList'
@@ -31,7 +34,7 @@ class SearchBar extends Component {
   }
 
   validate() {
-    let errors = {};
+    const errors = {};
     if (this.state.source === '') {
       errors.source = 'Please Enter Origin City';
     }

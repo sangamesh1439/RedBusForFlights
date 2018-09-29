@@ -1,11 +1,14 @@
+/*************************************************
+ * Code Challange
+ *************************************************/
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './FlightList.css';
 import FlightView from '../../components/FlightView/FlightView'
 class FlightList extends Component {
   render() {
-    let { flights, searchParams } = this.props;
-    let way = searchParams.way;
+    const { flights, searchParams } = this.props;
+    const way = searchParams.way;
     let journey = `Showing all Filghts`;
 
     if (way === 1) {
@@ -17,7 +20,6 @@ class FlightList extends Component {
     return (
       <div>
         <h1>{journey}</h1>
-
 
         {
           way === 2 ?
@@ -37,16 +39,13 @@ class FlightList extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("my state : ", state);
-  console.log("my state : ", state.flightsReducer);
   return {
     flights: state.flightsReducer.filteredFilghts,
     searchParams: state.flightsReducer.searchParams
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-  }
+function mapDispatchToProps() {
+  return {}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(FlightList);

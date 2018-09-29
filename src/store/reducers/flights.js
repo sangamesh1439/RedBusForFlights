@@ -1,6 +1,9 @@
 
+/*************************************************
+ * Code Challange
+ *************************************************/
 import flightsData from '../../__mocks__/flightsData';
-let initState = {
+const initState = {
     flights: flightsData,
     filteredFilghts: flightsData,
     searchParams: {}
@@ -9,7 +12,7 @@ let initState = {
 const flightsReducer = (state = initState, action) => {
     switch (action.type) {
         case 'SEARCH':
-            let searchParams = action.payload.searchParams;
+            const searchParams = action.payload.searchParams;
             if (searchParams.way === 1) {
                 return { ...state, searchParams: searchParams, filteredFilghts: oneWaySearch(searchParams) };
             }
@@ -34,32 +37,24 @@ const oneWaySearch = (searchParams) => {
         if (!flight.worksOnThesedays[departureDay]) {
             return false;
         }
-        if (!(flight.source === source)) { return false };
-        if (!(flight.destination === destination)) { return false };
+        if (!(flight.source === source)) { return false }
+        if (!(flight.destination === destination)) { return false }
         if (searchParams.way === 1) {
-            console.log("way is 1");
-            if (!(price <= parseInt(flight.price, 10))) { return false };
+            if (!(price <= parseInt(flight.price, 10))) { return false }
         }
         return true;
     });
-    console.log('filteredFilghts: 1 way', filteredFilghts);
     return filteredFilghts;
 }
 
 const twoWaySearch = (searchParams) => {
     const oneWay = oneWaySearch(searchParams);
-    let returnSearchParams = { ...searchParams, source: searchParams.destination, destination: searchParams.source };
+    const returnSearchParams = { ...searchParams, source: searchParams.destination, destination: searchParams.source };
     const twoWay = oneWaySearch(returnSearchParams);
-
-    console.log('oneWay: ', oneWay);
-    console.log('twoWay: ', twoWay);
-
     const allPossibleRoutes = [];
     oneWay.map((flightA) => {
         return twoWay.map((flightB) => {
             const roundTripPrice = flightA.price + flightB.price;
-            console.log('roundTripPrice', roundTripPrice);
-            console.log('searchParams price', searchParams.price);
             if (searchParams.price === 0) {
                 allPossibleRoutes.push([flightA, flightB])
 
@@ -70,7 +65,6 @@ const twoWaySearch = (searchParams) => {
             return true
         })
     })
-    console.log('allPossibleRoutes: ', allPossibleRoutes);
     return allPossibleRoutes;
 }
 

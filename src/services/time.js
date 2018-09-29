@@ -1,5 +1,8 @@
+/*************************************************
+ * Code Challange
+ *************************************************/
 export const convertTime = (milliseconds) => {
-    var day, hour, minute, seconds;
+    let day, hour, minute, seconds;
     seconds = Math.floor(milliseconds / 1000);
     minute = Math.floor(seconds / 60);
     seconds = seconds % 60;

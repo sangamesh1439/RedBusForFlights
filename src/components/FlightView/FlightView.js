@@ -1,3 +1,6 @@
+/*************************************************
+ * Code Challange
+ *************************************************/
 import React, { Component } from 'react';
 import './FlightView.css';
 import booking from '../../components/common/header/images/logo.png';
