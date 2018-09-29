@@ -173,8 +173,8 @@ class SearchBar extends Component {
 
 function mapStateToProps(state) {
   return {
-    sourceList: state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.source) }),
-    destinationList: state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.destination) })
+    sourceList: [...new Set(state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.source) }))],
+    destinationList: [...new Set(state.flightsReducer.flights.map((flight) => { return toTitleCase(flight.destination) }))]
   }
 }
 
