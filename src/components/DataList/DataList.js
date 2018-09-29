@@ -8,7 +8,7 @@ class DataList extends Component {
         {label?
           <label>{label}</label>
           :null}
-        <input className="data-list" list={name} placeholder={placeholder} onChange={(e) => { selected(e.target.value) }} />
+        <input required className="data-list" list={name} placeholder={placeholder} onChange={(e) => { selected(e.target.value) }} />
         <datalist id={name} >
           {
             data.map((item, index) => {

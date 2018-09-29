@@ -1,8 +1,10 @@
 [
     {
         "id": "AI202",
-        "source": "PNQ",
-        "destination": "DEL",
+        "source": "pune",
+        "destination": "delhi",
+        "sourceId": "PNQ",
+        "destinationId": "DEL",
         "days": [
             true,
             true,
@@ -18,8 +20,10 @@
     },
     {
         "id": "AI202",
-        "source": "PNQ",
-        "destination": "DEL",
+        "source": "pune",
+        "destination": "delhi",
+        "sourceId": "PNQ",
+        "destinationId": "DEL",
         "days": [
             true,
             true,

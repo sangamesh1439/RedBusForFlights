@@ -9,14 +9,14 @@ class FlightView extends Component {
         <div className="row">
 
           <div className="details">
-            <p class="price-tag">Rs. {flight.price} ₹</p>
-            <p class="flight-id">{flight.id}</p>
-            <p>{flight.source} > {flight.destination}</p>
+            <p className="price-tag">Rs. {flight.price} ₹</p>
+            <p className="flight-id">{flight.id}</p>
+            <p>{flight.sourceId} > {flight.destinationId}</p>
             <p>Depart: {flight.depart}</p>
             <p>Arrive: {flight.arrive}</p>
           </div>
           <div className="booking">
-            <img class="booking-img" src={booking} alt="" /><br/>
+            <img className="booking-img" src={booking} alt="" /><br />
             <button className="book-button">Book</button>
           </div>
         </div>

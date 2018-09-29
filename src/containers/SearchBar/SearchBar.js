@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
 import DataList from '../../components/DataList/DataList'
+import { getTodaysDate } from '../../services/time'
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -22,15 +23,15 @@ class SearchBar extends Component {
         </div>
 
         <form>
-          <DataList name={"orginalCity"} placeholder={"Enter Original City"} data={data} selected={(orginalCity) => {
-            this.setState({ orginalCity: orginalCity })
+          <DataList name={"source"} placeholder={"Enter Original City"} data={data} selected={(source) => {
+            this.setState({ source: source })
           }} />
 
-          <DataList name={"destinationCity"} placeholder={"Enter Destination City"} data={data} selected={(destinationCity) => {
-            this.setState({ destinationCity: destinationCity })
+          <DataList name={"destination"} placeholder={"Enter Destination City"} data={data} selected={(destination) => {
+            this.setState({ destination: destination })
           }} />
-          <label class='label-title' for='departureDate'>Select Departure Date :</label>
-          <input type="date" className="date" name="departureDate" onChange={(e) => {
+          <label className='label-title' htmlFor='departureDate'>Select Departure Date :</label>
+          <input required type="date" className="date" name="departureDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
             this.setState({ departureDate: e.target.value })
           }} /> <br />
 
@@ -40,14 +41,14 @@ class SearchBar extends Component {
               null
               :
               <React.Fragment>
-                <label class='label-title' for='departureDate'>Select Return Date :</label>
-                <input type="date" className="date" name="returnDate" onChange={(e) => {
+                <label className='label-title' htmlFor='departureDate'>Select Return Date :</label>
+                <input type="date" className="date" name="returnDate" min={getTodaysDate()} onKeyDown={(e) => { e.preventDefault() }} onChange={(e) => {
                   this.setState({ returnDate: e.target.value })
                 }} /> <br />
               </React.Fragment>
           }
 
-          <select className="passengers" onChange={(e) => {
+          <select required className="passengers" onChange={(e) => {
             this.setState({ passengers: e.target.value });
           }}>
             <option value={0}>Please select Number of Passengers</option>
@@ -59,8 +60,8 @@ class SearchBar extends Component {
           </select>
 
           <div className="way-buttons">
-            <button type="button" class="search-button" onClick={(e) => {
-              console.log("State : ", this.state);
+            <button type="submit" onClick={(e) => {
+              console.log("State : ", JSON.stringify(this.state));
               e.preventDefault();
             }}> Search</button>
           </div>
