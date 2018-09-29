@@ -1,4 +1,7 @@
 
+/*************************************************
+ * Code Challange
+ *************************************************/
 import flightsReducer from './flightsReducer';
 import {expect} from 'chai';
 import flightsData from '../../__mocks__/flightsData';
@@ -10,6 +13,3 @@ describe('post reducer', () => {
         expect(flightsReducer(undefined, {}).flights).equal(flightsData);
     });
 });
-
-
-

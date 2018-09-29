@@ -7,6 +7,8 @@ import booking from '../../components/common/header/images/logo.png';
 import { convertTime } from '../../services/time'
 import fightLand from './images/flightLand.png';
 import flightTakeoff from './images/flightTakeoff.png';
+import roundTrip from './images/roundTrip.png';
+
 class FlightView extends Component {
   render() {
     const { oneWay, twoWay, passengers } = this.props;
@@ -46,7 +48,15 @@ class FlightView extends Component {
               : null
           }
           <div className="booking">
-            <img className="booking-img" src={booking} alt="" /><br />
+            {
+
+              twoWay ?
+                <img className="booking-img" src={roundTrip} alt="" />
+                :
+                <img className="booking-img" src={booking} alt="" />
+
+            }
+            <br />
             <button className="book-button">Book</button>
           </div>
         </div>
