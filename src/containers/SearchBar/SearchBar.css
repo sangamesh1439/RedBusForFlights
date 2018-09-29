@@ -8,11 +8,18 @@
   border-radius: 5px;
   width: 100%;
   font-size: .9em;
-  margin: 6px 0 0;
   padding: .9em;
   line-height: 1.2em;
   box-shadow: none;
 }
+
+.label-title{
+  width: 100%;
+  font-size: .9em;
+  margin: 5px;
+  display:inline-block;
+}
+
 
 .passengers{
   border: 1px solid #D84E55!important;
@@ -23,4 +30,4 @@
   height: 40px;
   line-height: 1.2em;
   box-shadow: none;
-}
+}  

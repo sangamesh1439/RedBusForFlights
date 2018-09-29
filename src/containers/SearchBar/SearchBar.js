@@ -22,7 +22,6 @@ class SearchBar extends Component {
         </div>
 
         <form>
-
           <DataList name={"orginalCity"} placeholder={"Enter Original City"} data={data} selected={(orginalCity) => {
             this.setState({ orginalCity: orginalCity })
           }} />
@@ -30,8 +29,8 @@ class SearchBar extends Component {
           <DataList name={"destinationCity"} placeholder={"Enter Destination City"} data={data} selected={(destinationCity) => {
             this.setState({ destinationCity: destinationCity })
           }} />
-
-          <input type="date" className="date" placeholder="departureDate" onChange={(e) => {
+          <label class='label-title' for='departureDate'>Select Departure Date :</label>
+          <input type="date" className="date" name="departureDate" onChange={(e) => {
             this.setState({ departureDate: e.target.value })
           }} /> <br />
 
@@ -41,6 +40,7 @@ class SearchBar extends Component {
               null
               :
               <React.Fragment>
+                <label class='label-title' for='departureDate'>Select Return Date :</label>
                 <input type="date" className="date" name="returnDate" onChange={(e) => {
                   this.setState({ returnDate: e.target.value })
                 }} /> <br />
@@ -59,7 +59,7 @@ class SearchBar extends Component {
           </select>
 
           <div className="way-buttons">
-            <button type="button" onClick={(e) => {
+            <button type="button" class="search-button" onClick={(e) => {
               console.log("State : ", this.state);
               e.preventDefault();
             }}> Search</button>
