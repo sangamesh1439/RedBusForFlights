@@ -24,13 +24,13 @@ class FlightList extends Component {
         {
           way === 2 ?
             flights.map((flight, index) => {
-              return <FlightView key={index} oneWay={flight[0]} twoWay={flight[1]} />
+              return <FlightView passengers={searchParams.passengers} key={index} oneWay={flight[0]} twoWay={flight[1]} />
               // return <h2>This would be flights details component11</h2>
             })
             :
 
             flights.map((flight, index) => {
-              return <FlightView key={index} oneWay={flight} />
+              return <FlightView passengers={searchParams.passengers} key={index} oneWay={flight} />
               // return <h2>This would be flights details component11</h2>
             })
         }

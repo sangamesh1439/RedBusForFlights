@@ -76,3 +76,7 @@
   background: #D84E55;
   cursor: pointer;
 }
+
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+}

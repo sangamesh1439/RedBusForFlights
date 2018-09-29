@@ -9,14 +9,19 @@ import fightLand from './images/flightLand.png';
 import flightTakeoff from './images/flightTakeoff.png';
 class FlightView extends Component {
   render() {
-    const { oneWay, twoWay } = this.props;
+    const { oneWay, twoWay, passengers } = this.props;
     let price = parseInt(oneWay.price, 10);
     if (twoWay) {
       price = price + parseInt(twoWay.price, 10);
     }
     return (
       <div className="card">
-        <p className="price-tag">Rs. {price} ₹</p>
+        <p className="price-tag">Rs. {price} ₹ </p>
+        {
+
+          passengers ?
+            <p>Total Price:  {price * passengers} ₹ ({price} X {passengers}) </p> : null
+        }
         <div className="row">
           <div className="details">
             <img className='flight-icons' src={flightTakeoff} alt='' />
@@ -35,8 +40,8 @@ class FlightView extends Component {
                 <p className="flight-id">{twoWay.id}</p>
                 <p>Rs. {twoWay.price} ₹</p>
                 <p>{twoWay.sourceId} > {twoWay.destinationId}</p>
-                <p>Depart: {twoWay.depart}</p>
-                <p>Arrive: {twoWay.arrive}</p>
+                <p>Depart: {convertTime(twoWay.depart).hour} : {convertTime(twoWay.depart).minute} </p>
+                <p>Arrive: {convertTime(twoWay.arrive).hour} : {convertTime(twoWay.arrive).minute} </p>
               </div>
               : null
           }
