@@ -1,4 +1,26 @@
 .way-buttons{
     display: flex;
   justify-content: center;
+  margin: 10px;
+}
+.date{
+  border: 1px solid #D84E55!important;
+  border-radius: 5px;
+  width: 100%;
+  font-size: .9em;
+  margin: 6px 0 0;
+  padding: .9em;
+  line-height: 1.2em;
+  box-shadow: none;
+}
+
+.passengers{
+  border: 1px solid #D84E55!important;
+  border-radius: 5px;
+  width: 100%;
+  font-size: .9em;
+  margin: 6px 0 0;
+  height: 40px;
+  line-height: 1.2em;
+  box-shadow: none;
 }

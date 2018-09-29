@@ -5,7 +5,7 @@ class DataList extends Component {
     let { name, placeholder, data, selected } = this.props;
     return (
       <div className="">
-        <input list={name} placeholder={placeholder} onChange={(e) => { selected(e.target.value) }} />
+        <input className="data-list" list={name} placeholder={placeholder} onChange={(e) => { selected(e.target.value) }} />
         <datalist id={name} >
           {
             data.map((item, index) => {

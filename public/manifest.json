@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Red Flights",
+  "name": "Red Bus For Flights",
   "icons": [
     {
       "src": "favicon.ico",

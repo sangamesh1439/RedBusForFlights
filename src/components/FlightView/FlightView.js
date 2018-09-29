@@ -16,7 +16,7 @@ class FlightView extends Component {
             <p>Arrive: {flight.arrive}</p>
           </div>
           <div className="booking">
-            <img class="booking-img" src={booking} alt="" />
+            <img class="booking-img" src={booking} alt="" /><br/>
             <button className="book-button">Book</button>
           </div>
         </div>

@@ -31,7 +31,7 @@ class SearchBar extends Component {
             this.setState({ destinationCity: destinationCity })
           }} />
 
-          <input type="date" placeholder="departureDate" onChange={(e) => {
+          <input type="date" className="date" placeholder="departureDate" onChange={(e) => {
             this.setState({ departureDate: e.target.value })
           }} /> <br />
 
@@ -41,16 +41,16 @@ class SearchBar extends Component {
               null
               :
               <React.Fragment>
-                <input type="date" name="returnDate" onChange={(e) => {
+                <input type="date" className="date" name="returnDate" onChange={(e) => {
                   this.setState({ returnDate: e.target.value })
                 }} /> <br />
               </React.Fragment>
           }
 
-          <select onChange={(e) => {
+          <select className="passengers" onChange={(e) => {
             this.setState({ passengers: e.target.value });
           }}>
-            <option value={0}>Passengers</option>
+            <option value={0}>Please select Number of Passengers</option>
             {
               Array(100).fill(1).map((x, index) => {
                 return <option key={index} value={index + 1}>{index + 1}</option>
@@ -58,10 +58,12 @@ class SearchBar extends Component {
             }
           </select>
 
-          <button type="button" onClick={(e) => {
-            console.log("State : ", this.state);
-            e.preventDefault();
-          }}> Search</button>
+          <div className="way-buttons">
+            <button type="button" onClick={(e) => {
+              console.log("State : ", this.state);
+              e.preventDefault();
+            }}> Search</button>
+          </div>
 
         </form>
       </div >
